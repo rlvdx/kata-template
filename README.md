@@ -10,3 +10,7 @@ I come with this required via Composer:
 - `mockery/mockery`
 - `phpunit/phpunit`
 - `symfony/var-dumper`
+
+### Make commands
+- `make install` to install dependencies with Composer
+- `make test` (or `make tests`) to run tests with PHPUnit
