@@ -12,10 +12,8 @@ I come with this required via Composer:
 - `symfony/var-dumper`
 
 ### Make commands
-Make recipes work, by default, on PHP 5.6 with a docker runtime.
+My recipes work, by default, on PHP 5.6 with a docker runtime.
 
-Run `make help` to know how to change its runtime behaviour (no docker, version, etc.).
-
-#### Commands
-- `make install` to install dependencies with Composer
-- `make test` (or `make tests`) to run tests with PHPUnit
+Run `make help` to know:
+- how to change my `make` runtime behaviour (no docker, version, etc.)
+- get my available recipes
