@@ -3,17 +3,17 @@
 
 export DEFAULT_PHP_VERSION = 5.6
 
-export EXEC := docker
+export RUNTIME := docker
 export PHP := $(DEFAULT_PHP_VERSION)
 
-# If shell executor and PHP not default, you cannot continue
-ifeq ($(EXEC),shell)
+# If shell runtime and PHP not default, you cannot continue
+ifeq ($(RUNTIME),shell)
 ifneq ($(PHP),$(DEFAULT_PHP_VERSION),)
-   $(error "When using shell executor, PHP version depends on your host")
+   $(error "When using shell runtime, PHP version depends on your host")
 endif
 endif
 
-ifeq ($(EXEC),docker)
+ifeq ($(RUNTIME),docker)
 export PHP_RUN = docker run \
 	--rm --name kata-template -ti \
 	--volume ${PWD}:/app --workdir /app \
@@ -34,14 +34,14 @@ test tests: ## Runs tests with PHPUnit
 	$(PHP_RUN) ./vendor/bin/phpunit --config=phpunit.xml
 
 help usage: ## Displays this help message
-	@echo 'Usage: make COMMAND [PHP=<version>] [EXEC=<docker|shell>]'
+	@echo 'Usage: make COMMAND [PHP=<version>] [RUNTIME=<docker|shell>]'
 	@echo
 	@echo 'Make variables:'
 	@echo
 	@echo 'PHP             2 digits, dot separeted PHP version (5.6 by default)'
-	@echo '                    - Incompatible with EXEC variable'
+	@echo '                    - Incompatible with RUNTIME variable'
 	@echo '                    - Exhaustive supported PHP version: https://hub.docker.com/_/php/'
-	@echo 'EXEC            Runtime environment to run your make recipe'
+	@echo 'RUNTIME         Runtime environment to run your make recipe'
 	@echo
 	@echo 'Commands:'
 	@echo
