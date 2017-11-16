@@ -4,13 +4,6 @@ namespace Evaneos\Kata;
 
 final class Pawn
 {
-    const COLOR_DARK   = 'dark';
-    const COLOR_LIGHT  = 'light';
-    const SHAPE_ROUND  = 'round';
-    const SHAPE_SQUARE = 'square';
-    const SIZE_SHORT   = 'short';
-    const SIZE_TALL    = 'tall';
-
     /** @var string */
     private $color;
 
@@ -19,8 +12,6 @@ final class Pawn
 
     /** @var string */
     private $size;
-
-    private $hollow;
 
     /**
      * Pawn constructor.
@@ -40,26 +31,14 @@ final class Pawn
     }
 
     /**
-     * @return string
+     * @return Characteristics
      */
-    public function getColor()
+    public function getCharacteristics()
     {
-        return $this->color;
-    }
-
-    /**
-     * @return string
-     */
-    public function getShape()
-    {
-        return $this->shape;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSize()
-    {
-        return $this->size;
+        return new Characteristics([
+            $this->color,
+            $this->shape,
+            $this->size,
+        ]);
     }
 }

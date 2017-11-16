@@ -22,74 +22,21 @@ final class Line
      */
     public function isWinning()
     {
-        return count($this->getLineDifferentColors()) === 1
-            || count($this->getLineDifferentShapes()) === 1
-            || count($this->getLineDifferentSizes()) === 1;
+        return ! $this->getCommonCharacteristics()->isEmpty();
     }
 
     /**
-     * @return string[]
+     * @return Characteristics
      */
-    private function getLineDifferentColors()
+    private function getCommonCharacteristics()
     {
-        return array_unique(
-            array_reduce(
-                $this->pawns,
-                function ($colors, Pawn $pawn) {
-                    $color = $pawn->getColor();
-
-                    if ($color !== null) {
-                        $colors[] = $color;
-                    }
-
-                    return $colors;
-                },
-                []
-            )
-        );
-    }
-
-    /**
-     * @return string[]
-     */
-    private function getLineDifferentShapes()
-    {
-        return array_unique(
-            array_reduce(
-                $this->pawns,
-                function ($shapes, Pawn $pawn) {
-                    $shape = $pawn->getShape();
-
-                    if ($shape !== null) {
-                        $shapes[] = $shape;
-                    }
-
-                    return $shapes;
-                },
-                []
-            )
-        );
-    }
-
-    /**
-     * @return string[]
-     */
-    private function getLineDifferentSizes()
-    {
-        return array_unique(
-            array_reduce(
-                $this->pawns,
-                function ($sizes, Pawn $pawn) {
-                    $size = $pawn->getSize();
-
-                    if ($size !== null) {
-                        $sizes[] = $size;
-                    }
-
-                    return $sizes;
-                },
-                []
-            )
+        return array_reduce(
+            $this->pawns,
+            function (Characteristics $characteristics, Pawn $pawn)
+            {
+                return $characteristics->commonCharacteristics($pawn->getCharacteristics());
+            },
+            Characteristics::full()
         );
     }
 }

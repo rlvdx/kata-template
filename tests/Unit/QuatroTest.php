@@ -2,8 +2,8 @@
 
 namespace Evaneos\Kata\Tests\Unit;
 
+use Evaneos\Kata\Characteristics;
 use Evaneos\Kata\Line;
-use Evaneos\Kata\Pawn;
 use Evaneos\Kata\PawnBuilder;
 
 class QuatroTest extends \PHPUnit_Framework_TestCase
@@ -41,34 +41,34 @@ class QuatroTest extends \PHPUnit_Framework_TestCase
     {
         return [
             'only dark pawns' => [ new Line([
-                $this->getPawn()->withColor(Pawn::COLOR_DARK)->build(),
-                $this->getPawn()->withColor(Pawn::COLOR_DARK)->build(),
-                $this->getPawn()->withColor(Pawn::COLOR_DARK)->build(),
-                $this->getPawn()->withColor(Pawn::COLOR_DARK)->build()
+                $this->getPawn()->withColor(Characteristics::COLOR_DARK)->build(),
+                $this->getPawn()->withColor(Characteristics::COLOR_DARK)->build(),
+                $this->getPawn()->withColor(Characteristics::COLOR_DARK)->build(),
+                $this->getPawn()->withColor(Characteristics::COLOR_DARK)->build()
             ]) ],
             'only light pawns' => [ new Line([
-                $this->getPawn()->withColor(Pawn::COLOR_LIGHT)->build(),
-                $this->getPawn()->withColor(Pawn::COLOR_LIGHT)->build(),
-                $this->getPawn()->withColor(Pawn::COLOR_LIGHT)->build(),
-                $this->getPawn()->withColor(Pawn::COLOR_LIGHT)->build()
+                $this->getPawn()->withColor(Characteristics::COLOR_LIGHT)->build(),
+                $this->getPawn()->withColor(Characteristics::COLOR_LIGHT)->build(),
+                $this->getPawn()->withColor(Characteristics::COLOR_LIGHT)->build(),
+                $this->getPawn()->withColor(Characteristics::COLOR_LIGHT)->build()
             ]) ],
             'only round pawns' => [ new Line([
-                $this->getPawn()->withShape(Pawn::SHAPE_ROUND)->build(),
-                $this->getPawn()->withShape(Pawn::SHAPE_ROUND)->build(),
-                $this->getPawn()->withShape(Pawn::SHAPE_ROUND)->build(),
-                $this->getPawn()->withShape(Pawn::SHAPE_ROUND)->build()
+                $this->getPawn()->withShape(Characteristics::SHAPE_ROUND)->build(),
+                $this->getPawn()->withShape(Characteristics::SHAPE_ROUND)->build(),
+                $this->getPawn()->withShape(Characteristics::SHAPE_ROUND)->build(),
+                $this->getPawn()->withShape(Characteristics::SHAPE_ROUND)->build()
             ]) ],
             'only square pawns' => [ new Line([
-                $this->getPawn()->withShape(Pawn::SHAPE_SQUARE)->build(),
-                $this->getPawn()->withShape(Pawn::SHAPE_SQUARE)->build(),
-                $this->getPawn()->withShape(Pawn::SHAPE_SQUARE)->build(),
-                $this->getPawn()->withShape(Pawn::SHAPE_SQUARE)->build()
+                $this->getPawn()->withShape(Characteristics::SHAPE_SQUARE)->build(),
+                $this->getPawn()->withShape(Characteristics::SHAPE_SQUARE)->build(),
+                $this->getPawn()->withShape(Characteristics::SHAPE_SQUARE)->build(),
+                $this->getPawn()->withShape(Characteristics::SHAPE_SQUARE)->build()
             ]) ],
             'only short pawns' => [ new Line([
-                $this->getPawn()->withSize(Pawn::SIZE_SHORT)->build(),
-                $this->getPawn()->withSize(Pawn::SIZE_SHORT)->build(),
-                $this->getPawn()->withSize(Pawn::SIZE_SHORT)->build(),
-                $this->getPawn()->withSize(Pawn::SIZE_SHORT)->build()
+                $this->getPawn()->withSize(Characteristics::SIZE_SHORT)->build(),
+                $this->getPawn()->withSize(Characteristics::SIZE_SHORT)->build(),
+                $this->getPawn()->withSize(Characteristics::SIZE_SHORT)->build(),
+                $this->getPawn()->withSize(Characteristics::SIZE_SHORT)->build()
             ]) ]
         ];
     }
@@ -77,22 +77,22 @@ class QuatroTest extends \PHPUnit_Framework_TestCase
     {
         return [
             'one pawn has a different color' => [ new Line([
-                $this->getPawn()->withColor(Pawn::COLOR_DARK)->build(),
-                $this->getPawn()->withColor(Pawn::COLOR_LIGHT)->build(),
-                $this->getPawn()->withColor(Pawn::COLOR_DARK)->build(),
-                $this->getPawn()->withColor(Pawn::COLOR_DARK)->build()
+                $this->getPawn()->withColor(Characteristics::COLOR_DARK)->build(),
+                $this->getPawn()->withColor(Characteristics::COLOR_LIGHT)->build(),
+                $this->getPawn()->withColor(Characteristics::COLOR_DARK)->build(),
+                $this->getPawn()->withColor(Characteristics::COLOR_DARK)->build()
             ]) ],
             'one pawn has a different shape' => [ new Line([
-                $this->getPawn()->withShape(Pawn::SHAPE_ROUND)->build(),
-                $this->getPawn()->withShape(Pawn::SHAPE_SQUARE)->build(),
-                $this->getPawn()->withShape(Pawn::SHAPE_ROUND)->build(),
-                $this->getPawn()->withShape(Pawn::SHAPE_ROUND)->build()
+                $this->getPawn()->withShape(Characteristics::SHAPE_ROUND)->build(),
+                $this->getPawn()->withShape(Characteristics::SHAPE_SQUARE)->build(),
+                $this->getPawn()->withShape(Characteristics::SHAPE_ROUND)->build(),
+                $this->getPawn()->withShape(Characteristics::SHAPE_ROUND)->build()
             ]) ],
             'one pawn has a different size' => [ new Line([
-                $this->getPawn()->withSize(Pawn::SIZE_SHORT)->build(),
-                $this->getPawn()->withSize(Pawn::SIZE_TALL)->build(),
-                $this->getPawn()->withSize(Pawn::SIZE_SHORT)->build(),
-                $this->getPawn()->withSize(Pawn::SIZE_SHORT)->build()
+                $this->getPawn()->withSize(Characteristics::SIZE_SHORT)->build(),
+                $this->getPawn()->withSize(Characteristics::SIZE_TALL)->build(),
+                $this->getPawn()->withSize(Characteristics::SIZE_SHORT)->build(),
+                $this->getPawn()->withSize(Characteristics::SIZE_SHORT)->build()
             ]) ]
         ];
     }
