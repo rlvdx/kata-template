@@ -10,6 +10,8 @@ final class Characteristics
     const SHAPE_SQUARE = 'square';
     const SIZE_SHORT   = 'short';
     const SIZE_TALL    = 'tall';
+    const BODY_SOLID   = 'solid';
+    const BODY_HOLLOW  = 'hollow';
 
     /** @var string[] */
     private $characteristics;
@@ -55,7 +57,9 @@ final class Characteristics
             self::SHAPE_ROUND,
             self::SHAPE_SQUARE,
             self::SIZE_SHORT,
-            self::SIZE_TALL
+            self::SIZE_TALL,
+            self::BODY_HOLLOW,
+            self::BODY_SOLID
         ]);
     }
 }

@@ -69,6 +69,18 @@ class QuatroTest extends \PHPUnit_Framework_TestCase
                 $this->getPawn()->withSize(Characteristics::SIZE_SHORT)->build(),
                 $this->getPawn()->withSize(Characteristics::SIZE_SHORT)->build(),
                 $this->getPawn()->withSize(Characteristics::SIZE_SHORT)->build()
+            ]) ],
+            'only solid pawns' => [ new Line([
+                $this->getPawn()->withBody(Characteristics::BODY_SOLID)->build(),
+                $this->getPawn()->withBody(Characteristics::BODY_SOLID)->build(),
+                $this->getPawn()->withBody(Characteristics::BODY_SOLID)->build(),
+                $this->getPawn()->withBody(Characteristics::BODY_SOLID)->build()
+            ]) ],
+            'only hollow pawns' => [ new Line([
+                $this->getPawn()->withBody(Characteristics::BODY_HOLLOW)->build(),
+                $this->getPawn()->withBody(Characteristics::BODY_HOLLOW)->build(),
+                $this->getPawn()->withBody(Characteristics::BODY_HOLLOW)->build(),
+                $this->getPawn()->withBody(Characteristics::BODY_HOLLOW)->build()
             ]) ]
         ];
     }
@@ -93,6 +105,12 @@ class QuatroTest extends \PHPUnit_Framework_TestCase
                 $this->getPawn()->withSize(Characteristics::SIZE_TALL)->build(),
                 $this->getPawn()->withSize(Characteristics::SIZE_SHORT)->build(),
                 $this->getPawn()->withSize(Characteristics::SIZE_SHORT)->build()
+            ]) ],
+            'one pawn has a different body' => [ new Line([
+                $this->getPawn()->withBody(Characteristics::BODY_SOLID)->build(),
+                $this->getPawn()->withBody(Characteristics::BODY_HOLLOW)->build(),
+                $this->getPawn()->withBody(Characteristics::BODY_SOLID)->build(),
+                $this->getPawn()->withBody(Characteristics::BODY_SOLID)->build()
             ]) ]
         ];
     }

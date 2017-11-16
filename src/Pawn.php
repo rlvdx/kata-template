@@ -13,21 +13,27 @@ final class Pawn
     /** @var string */
     private $size;
 
+    /** @var string */
+    private $body;
+
     /**
      * Pawn constructor.
      *
      * @param string $color
      * @param string $shape
      * @param string $size
+     * @param string $body
      */
     public function __construct(
         $color,
         $shape,
-        $size
+        $size,
+        $body
     ) {
         $this->color = $color;
         $this->shape = $shape;
         $this->size  = $size;
+        $this->body  = $body;
     }
 
     /**
@@ -39,6 +45,7 @@ final class Pawn
             $this->color,
             $this->shape,
             $this->size,
+            $this->body,
         ]);
     }
 }
