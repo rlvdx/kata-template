@@ -4,6 +4,8 @@ namespace Evaneos\Kata;
 
 final class Line
 {
+    const MAX_PAWNS_NUMBER = 4;
+
     /** @var Pawn[] */
     private $pawns;
 
@@ -22,7 +24,8 @@ final class Line
      */
     public function isWinning()
     {
-        return ! $this->getCommonCharacteristics()->isEmpty();
+        return $this->isComplete()
+            && ! $this->getCommonCharacteristics()->isEmpty();
     }
 
     /**
@@ -38,5 +41,13 @@ final class Line
             },
             Characteristics::full()
         );
+    }
+
+    /**
+     * @return bool
+     */
+    private function isComplete()
+    {
+        return count($this->pawns) === self::MAX_PAWNS_NUMBER;
     }
 }

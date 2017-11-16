@@ -17,6 +17,17 @@ class QuatroTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @dataProvider getIncompleteLines
+     *
+     * @param Line $line
+     */
+    public function an_incomplete_line_cannot_be_winning(Line $line)
+    {
+        self::assertFalse($line->isWinning());
+    }
+
+    /**
+     * @test
      * @dataProvider getWinningLines
      *
      * @param Line $line
@@ -111,6 +122,29 @@ class QuatroTest extends \PHPUnit_Framework_TestCase
                 $this->getPawn()->withBody(Characteristics::BODY_HOLLOW)->build(),
                 $this->getPawn()->withBody(Characteristics::BODY_SOLID)->build(),
                 $this->getPawn()->withBody(Characteristics::BODY_SOLID)->build()
+            ]) ]
+        ];
+    }
+
+    public function getIncompleteLines()
+    {
+        return [
+            'line with three random pawns' => [ new Line([
+                $this->getPawn()->build(),
+                $this->getPawn()->build(),
+                $this->getPawn()->build()
+            ]) ],
+            'line with two random pawns' => [ new Line([
+                $this->getPawn()->build(),
+                $this->getPawn()->build()
+            ]) ],
+            'line with one random pawn' => [ new Line([
+                $this->getPawn()->build()
+            ]) ],
+            'line with three pawns sharing a characteristic' => [ new Line([
+                $this->getPawn()->withBody(Characteristics::BODY_HOLLOW)->build(),
+                $this->getPawn()->withBody(Characteristics::BODY_HOLLOW)->build(),
+                $this->getPawn()->withBody(Characteristics::BODY_HOLLOW)->build()
             ]) ]
         ];
     }
