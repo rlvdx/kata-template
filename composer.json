@@ -15,12 +15,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Evaneos\\Kata\\Template\\": "src"
+            "Evaneos\\Kata\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Evaneos\\Kata\\Template\\Tests\\": "tests"
+            "Evaneos\\Kata\\Tests\\": "tests"
         }
     },
     "require": {
