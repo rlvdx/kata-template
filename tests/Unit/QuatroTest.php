@@ -63,6 +63,12 @@ class QuatroTest extends \PHPUnit_Framework_TestCase
                 $this->getPawn()->withShape(Pawn::SHAPE_SQUARE)->build(),
                 $this->getPawn()->withShape(Pawn::SHAPE_SQUARE)->build(),
                 $this->getPawn()->withShape(Pawn::SHAPE_SQUARE)->build()
+            ]) ],
+            'only short pawns' => [ new Line([
+                $this->getPawn()->withSize(Pawn::SIZE_SHORT)->build(),
+                $this->getPawn()->withSize(Pawn::SIZE_SHORT)->build(),
+                $this->getPawn()->withSize(Pawn::SIZE_SHORT)->build(),
+                $this->getPawn()->withSize(Pawn::SIZE_SHORT)->build()
             ]) ]
         ];
     }
@@ -81,6 +87,12 @@ class QuatroTest extends \PHPUnit_Framework_TestCase
                 $this->getPawn()->withShape(Pawn::SHAPE_SQUARE)->build(),
                 $this->getPawn()->withShape(Pawn::SHAPE_ROUND)->build(),
                 $this->getPawn()->withShape(Pawn::SHAPE_ROUND)->build()
+            ]) ],
+            'one pawn has a different size' => [ new Line([
+                $this->getPawn()->withSize(Pawn::SIZE_SHORT)->build(),
+                $this->getPawn()->withSize(Pawn::SIZE_TALL)->build(),
+                $this->getPawn()->withSize(Pawn::SIZE_SHORT)->build(),
+                $this->getPawn()->withSize(Pawn::SIZE_SHORT)->build()
             ]) ]
         ];
     }

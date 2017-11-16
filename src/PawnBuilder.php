@@ -10,12 +10,15 @@ final class PawnBuilder
     /** @var string */
     private $shape;
 
+    /** @var string */
+    private $size;
+
     /**
      * @return Pawn
      */
     public function build()
     {
-        return new Pawn($this->color, $this->shape);
+        return new Pawn($this->color, $this->shape, $this->size);
     }
 
     /**
@@ -38,6 +41,18 @@ final class PawnBuilder
     public function withShape($shape)
     {
         $this->shape = $shape;
+
+        return $this;
+    }
+
+    /**
+     * @param string $size
+     *
+     * @return $this
+     */
+    public function withSize($size)
+    {
+        $this->size = $size;
 
         return $this;
     }

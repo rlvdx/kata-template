@@ -23,7 +23,8 @@ final class Line
     public function isWinning()
     {
         return count($this->getLineDifferentColors()) === 1
-            || count($this->getLineDifferentShapes()) === 1;
+            || count($this->getLineDifferentShapes()) === 1
+            || count($this->getLineDifferentSizes()) === 1;
     }
 
     /**
@@ -64,6 +65,28 @@ final class Line
                     }
 
                     return $shapes;
+                },
+                []
+            )
+        );
+    }
+
+    /**
+     * @return string[]
+     */
+    private function getLineDifferentSizes()
+    {
+        return array_unique(
+            array_reduce(
+                $this->pawns,
+                function ($sizes, Pawn $pawn) {
+                    $size = $pawn->getSize();
+
+                    if ($size !== null) {
+                        $sizes[] = $size;
+                    }
+
+                    return $sizes;
                 },
                 []
             )
