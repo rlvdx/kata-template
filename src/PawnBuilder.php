@@ -2,7 +2,7 @@
 
 namespace Evaneos\Kata;
 
-class PawnBuilder
+final class PawnBuilder
 {
     /** @var string */
     private $color;

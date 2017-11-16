@@ -22,6 +22,24 @@ final class Line
      */
     public function isWinning()
     {
-        return true;
+        return count($this->getLineDifferentColors()) === 1;
+    }
+
+    /**
+     * @return string[]
+     */
+    private function getLineDifferentColors()
+    {
+        return array_unique(
+            array_reduce(
+                $this->pawns,
+                function ($colors, Pawn $pawn) {
+                    $colors[] = $pawn->getColor();
+
+                    return $colors;
+                },
+                []
+            )
+        );
     }
 }
