@@ -6,15 +6,8 @@ use Evaneos\Kata\Characteristics;
 use Evaneos\Kata\Line;
 use Evaneos\Kata\PawnBuilder;
 
-class QuatroTest extends \PHPUnit_Framework_TestCase
+class QuatroLineTest extends \PHPUnit_Framework_TestCase
 {
-    private $sut;
-
-    protected function setUp()
-    {
-        $this->sut = null;
-    }
-
     /**
      * @test
      * @dataProvider getIncompleteLines
